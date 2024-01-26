@@ -1,0 +1,51 @@
+body {
+    background-image: url('product-jpeg.jpg');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: ;
+}  
+
+p {
+    text-align: center;
+    font-family: Roboto;
+    font-weight: bolder;
+    margin-bottom: 10px;
+
+}
+
+button{
+    color: white;
+    background-color: rgb(29, 161, 242);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(29, 161, 242);;
+    padding: 8px 10px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: background-color 0.35s;
+
+}
+button:hover{
+    background-color: white;
+    color: rgb(29, 161, 242);
+
+}
+.start{
+    color: rgb(255, 117, 63);
+}
+.descript{
+    font-size: 20px;
+    margin-top: 0;
+
+}
+.Pro{
+    font-size: 40px ;
+    margin-top: 0;
+}
+.price{
+    margin-top: 0;
+}
+.brig{
+    font-size: smaller;
+    color: rgb(29, 161, 242);
+}

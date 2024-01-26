@@ -1,0 +1,151 @@
+body{
+  /*This style below is below is inherited*/
+    font-family: Roboto, Arial;
+    margin: 0;
+    padding-bottom: 1000px;
+    padding-top: 140px;
+    padding-left: 95px;
+    padding-right: 24px;
+    background-color: rgba(255, 255, 255, 0.822);
+}
+
+p{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.thumbnail{
+  width: 100%
+}
+
+.meow{
+  width: 36px;
+  height: 36px;
+  border-radius: 50px;
+  object-fit: cover;
+
+}
+
+.channel-pic-grid{
+  display: grid;
+  grid-template-columns: 45px 1fr;
+}
+.video-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 16px;
+  row-gap: 40px;
+ 
+}
+
+@media (max-width: 750px) {
+  .video-grid{
+    grid-template-columns: 1fr 1fr;
+  }
+} 
+
+@media (min-width: 751px) and (max-width: 999px) {
+    .video-grid{
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media(min-width: 1000px){
+  .video-grid{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.video-title{
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+.Author,
+.views{
+  font-size: 12px;
+  color: rgb(96, 96, 96) ;
+}
+.Author{
+  margin-bottom: 4px;
+}
+
+.thumbnail-container{
+  margin-bottom: 12px ;
+  position: relative;
+}
+.video-preview .thumbnail-container,
+.video-preview .Author,
+.video-preview .video-title,
+.video-preview .channel-pic{
+  cursor: pointer;
+}
+.video-time{
+  position: absolute;
+  color: white;
+  background-color: black;
+  right: 5px;
+  bottom: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 4px;
+  padding: 5px 5px;
+}
+
+.notification-number{
+  position: absolute;
+  background-color: rgb(216, 8, 8);
+  color: white;
+  right: -4px;
+  top: 7px;
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 10px;
+
+}
+
+
+.upload{
+  height: 24px;
+}
+.youtube{
+  height: 24px;
+}
+.notifications{
+  height: 24px;
+}
+.channel{
+  height: 32px;
+  border-radius: 20px;
+ 
+}
+.sidebar-link{
+  img{
+    height: 24px;         
+  }
+  margin-bottom: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 74px;
+  div{
+    font-size: 10px;
+  }
+}
+
+.sidebar{
+  background-color: white;
+  padding-top: 21px;
+  padding-bottom: 80px;
+  width: 72px;
+  left: 0;
+  bottom: 0;
+  position: fixed;
+  top: 57px;
+  z-index: 200;      
+
+}
+
+
