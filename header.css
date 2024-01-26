@@ -1,0 +1,208 @@
+.header{
+          background-color: white;
+          height: 57px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          left: 0;
+          right: 0;
+          top: 0;
+          position: fixed;
+          border-bottom-color: rgb(194, 186, 186);
+          border-bottom-width: 1px;
+          border-bottom-style:  solid;
+          z-index: 100;
+        }
+        
+        .left-section{
+          
+          display: flex;
+          align-items: center;
+          
+        }
+        .middle-section{
+          flex: 1;
+          margin-left: 70px;
+          margin-right: 35px;
+          max-width: 500px;
+          display: flex;
+          align-items: center;
+
+        }
+        .right-section{
+          width: 190px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-right: 24px;
+          flex-shrink: 0;
+        }
+        .humburger-menu{
+          height: 24px;
+          margin-left: 24px;
+          margin-right: 24px;
+          cursor: pointer;
+        }
+        .youtube-logo{
+          height: 20px;
+          cursor: pointer;
+        }
+
+       
+        
+        .search{
+          display: flex;
+          flex: 1;
+          height: 36px;
+          font-size: 16px;
+          border-radius: 2px;
+          border: 1px solid rgb(192, 192, 192);
+          box-shadow: inset 1px 2px 5px 
+          rgba(0, 0, 0, 0.05);
+          width: 0;
+        }
+        .search::placeholder{
+          font-size: 16px;
+          padding-left: 10px;
+        }
+        .v-but{
+          height: 40px;
+          width: 40px;
+          border: none;        
+          border-radius: 25px;
+          background-color: rgb(240, 240, 240);
+          
+
+         
+        }
+        .search-click{
+          height: 40px;
+          width: 60px;
+          border-style: solid;
+          border-width: 1px;
+          background-color: rgb(240, 240, 240);
+          border-color: rgb(192, 192, 192);
+          margin-left: -1px;
+          margin-right: 10px;
+          
+        }
+        .search-button{
+            width: 25px;
+            
+        }
+
+        .search-click,
+        .v-but,
+        .upload-button,
+        .youtube-apps,
+        .notification-content,
+        .channel-content{
+            position: relative;
+            height: 40px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+           
+        }  
+
+        .search-click .tooltip,
+        .v-but .tooltip,
+        .upload-button .tooltip,
+        .youtube-apps .tooltip,
+        .notification-content .tooltip,
+        .channel-content .tooltip{
+            position: absolute;
+            background-color: gray;
+            color: white;
+            padding: 4px 8px;
+            top: 50px;
+            left: 2px;
+            border-radius: 2px;
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.15s;
+            pointer-events: none;
+            white-space: nowrap;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        .search-click:hover .tooltip,
+        .v-but:hover .tooltip,
+        .upload-button:hover .tooltip,
+        .youtube-apps:hover .tooltip,
+        .notification-content:hover .tooltip,
+        .channel-content:hover .tooltip{
+            opacity: 1;
+
+        }
+      
+      
+        .channel{
+          height: 32px;
+          border-radius: 20px;
+         
+        }
+        .sidebar-link img{
+            height: 24px;   
+            margin-bottom: 8px;  
+        }
+        .sidebar-link{
+          margin-bottom: 1px;
+          display: flex;
+          flex-direction: column;         
+          justify-content: center;
+          align-items: center;
+          height: 74px;
+          z-index: 200px;        
+        }
+
+        .sidebar-link div{
+            font-size: 10px;
+            font-family: Arial;
+            margin-bottom: 38px;
+          }
+
+        .sidebar-link:hover{
+            background-color: lightgray;
+            cursor: pointer;           
+        }
+        .channel-pic{
+            position: relative;
+            
+           
+        }
+        .channel-pic .channel-pic-hover{
+            display: grid;
+            grid-template-columns: 45px 140px;
+            background-color: white;
+            position: absolute;
+            padding-left: 10px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border-radius: 5px;
+            top: 50px;
+            opacity: 0;
+            transition: opacity 0.15s;
+            box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+       .channel-pic:hover .channel-pic-hover{
+            opacity: 1;
+       }
+
+        .text{
+            font-size: 13px;
+            font-family: Roboto, Arial;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        .subscribers{
+            font-size: 12px;
+            font-family: Roboto, Arial;
+            color: rgb(148, 143, 143);
+    
+        }
