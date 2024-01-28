@@ -1,0 +1,130 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: Roboto, Arial;
+    background: url(Intro-to-html/Aesthetic\ Art.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+.wrapper{
+    
+    
+    background:transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(15px);
+    width: 420px;
+    color: #fff;
+    border-radius: 40px;
+    padding: 30px 10px;
+    box-shadow: 0, 0, 10px rgba(255, 255, 255, 0.5);
+    
+}
+@media(max-width:750px) {
+    .wrapper{     
+        background:transparent;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(15px);
+        width: 300px;
+        color: #fff;
+        border-radius: 40px;
+        padding: 30px 10px;
+        box-shadow: 0, 0, 10px rgba(255, 255, 255, 0.5);
+        
+    }
+}
+
+.wrapper h1{
+    font-size: 36px;
+    text-align: center;
+}
+.wrapper .input-box{
+    width: 95.5%;
+    height: 50px;
+    margin: 30px 0;
+    position: relative;
+    
+}
+.user{
+    position: absolute;
+    width: 30px;
+    border-radius: 20px;
+    right: 0;
+    top: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.input-box input{
+    width: 98.5%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    font-size: 16px;
+    padding-left: 20px
+
+    
+    
+}
+.input-box input::placeholder{
+    color: #fff;
+    
+}
+.wrapper .remember-forgot{
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: -15px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+.remember-forgot label input{
+    accent-color: white;
+    margin-right: 5px;
+    
+}
+.remember-forgot a{
+    color: #fff;
+    text-decoration: none;
+}
+.remember-forgot a:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.wrapper .btn{
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    border-radius: 40px;
+    outline: none;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.35s;
+    
+}
+.wrapper .btn:active{
+    box-shadow: 0 0 15px rgba(41, 40, 40, 0.5);
+    background:transparent;
+    color: white;
+}
+.wrapper .register-link{
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
+.register-link a{
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+.register-link p a:hover{
+    text-decoration: underline;
+}
