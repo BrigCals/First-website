@@ -1,4 +1,107 @@
-<p>&lt;!DOCTYPE html&gt;<br />&lt;html lang="en"&gt;<br />&lt;head&gt;<br />&lt;meta charset="UTF-8"&gt;<br />&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br />&lt;title&gt;Inspiration&lt;/title&gt;<br />&lt;link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap"&gt;<br />&lt;style&gt;<br />body {<br />font-family: 'Roboto', sans-serif;<br />text-align: center;<br />margin: 0;<br />padding: 0;<br />overflow: hidden;<br />background: linear-gradient(-45deg, #ff8a00, #e52e71, #f8c6ff, #a88add, #8af6ff, #71e2e2, #b2f970, #f9ff00);<br />background-size: 400% 400%;<br />animation: gradient 15s ease infinite;<br />}<br />.container {<br />max-width: 400px;<br />margin: 50px auto;<br />border-radius: 10px;<br />box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);<br />padding: 20px;<br />color: #333;<br />text-shadow: 2px 2px 5px rgba(0,0,0,0.1);<br />}<br />h1 {<br />color: #333;<br />margin-bottom: 20px;<br />font-weight: 700;<br />font-size: 24px;<br />}<br />button {<br />background: linear-gradient(45deg, #4CAF50, #008CBA);<br />color: #fff;<br />border: none;<br />padding: 10px 20px;<br />font-size: 16px;<br />border-radius: 5px;<br />cursor: pointer;<br />transition: background-color 0.3s ease, box-shadow 0.3s ease;<br />box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);<br />position: relative;<br />overflow: hidden;<br />}<br />button::before {<br />content: '';<br />position: absolute;<br />top: 50%;<br />left: 50%;<br />transform: translate(-50%, -50%);<br />width: 200%;<br />height: 200%;<br />background-color: rgba(255, 255, 255, 0.1);<br />border-radius: 50%;<br />z-index: 2;<br />transition: all 0.5s ease;<br />}<br />button:hover::before {<br />width: 0;<br />height: 0;<br />}<br />.message {<br />margin-top: 20px;<br />font-size: 18px;<br />}<br />/* Background animation */<br />@keyframes gradient {<br />0% {<br />background-position: 0% 50%;<br />}<br />50% {<br />background-position: 100% 50%;<br />}<br />100% {<br />background-position: 0% 50%;<br />}<br />}<br />&lt;/style&gt;<br />&lt;/head&gt;<br />&lt;body&gt;<br />&lt;div class="container"&gt;<br />&lt;h1&gt;Inspiration Generator&lt;/h1&gt;<br />&lt;button onclick="showMessage()"&gt;Get Inspiration&lt;/button&gt;<br />&lt;div class="message" id="message"&gt;&lt;/div&gt;<br />&lt;/div&gt;</p>
-<p>&lt;script&gt;<br />function showMessage() {<br />var baseMessage = "Good luck on your studies, chiien 🤍";<br />var additionalMessages = [<br />"Believe you can and you're halfway there.",<br />"The only way to do great work is to love what you do.",<br />"You are never too old to set another goal or to dream a new dream.",<br />"Success is not final, failure is not fatal: It is the courage to continue that counts.",<br />"The future belongs to those who believe in the beauty of their dreams."<br />];</p>
-<p>var randomIndex = Math.floor(Math.random() * additionalMessages.length);<br />var randomMessage = additionalMessages[randomIndex];</p>
-<p>document.getElementById("message").textContent = randomMessage + " " + baseMessage;<br />}<br />&lt;/script&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspiration</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: linear-gradient(-45deg, #ff8a00, #e52e71, #f8c6ff, #a88add, #8af6ff, #71e2e2, #b2f970, #f9ff00);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            color: #333;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-size: 24px;
+        }
+        button {
+            background: linear-gradient(45deg, #4CAF50, #008CBA);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200%;
+            height: 200%;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            z-index: 2;
+            transition: all 0.5s ease;
+        }
+        button:hover::before {
+            width: 0;
+            height: 0;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        /* Background animation */
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Inspiration Generator</h1>
+        <button onclick="showMessage()">Get Inspiration</button>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        function showMessage() {
+            var baseMessage = "Good luck on your studies, chiien 🤍";
+            var additionalMessages = [
+                "Believe you can and you're halfway there.",
+                "The only way to do great work is to love what you do.",
+                "You are never too old to set another goal or to dream a new dream.",
+                "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+                "The future belongs to those who believe in the beauty of their dreams."
+            ];
+
+            var randomIndex = Math.floor(Math.random() * additionalMessages.length);
+            var randomMessage = additionalMessages[randomIndex];
+
+            document.getElementById("message").textContent = randomMessage + " " + baseMessage;
+        }
+    </script>
+</body>
+</html>
