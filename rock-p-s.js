@@ -113,10 +113,10 @@ function playGame(playerMove) {
 
  document.querySelector('.js-moves')
   .innerHTML = ` You picked 
-  <img src="Intro-to-html/brig/${playerMove}.png" class="move-icon">
+  <img src="${playerMove}.png" class="move-icon">
   
   .Computer picked
-  <img src="Intro-to-html/brig/${computerMove}.png" 
+  <img src="${computerMove}.png" 
   class="move-icon">`;
   
   updateScore();
