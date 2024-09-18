@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Paper Scissors</title>
+     <link rel="stylesheet" href="Intro-to-html/sample.css/rock-p-s.css"> 
+   
+
+  </head>
+  <body>
+
+    <div class="container">
+      <h1 class="title">Rock Paper Scissors</h1>
+
+      <div class="wrapper">
+        <button  class="rock-but"> 
+        <img class="rock" src="Intro-to-html/brig/rock.png">
+        </button>
+    
+        <button class="paper-button">
+          <img class="paper" src="Intro-to-html/brig/paper.png">  
+       </button>
+    
+        <button class="scissors">
+        <img class="scissors" src="Intro-to-html/brig/scissor.png">  
+       </button>
+  
+      </div>
+     
+      <p class="js-result"></p>
+      <p class="js-moves"></p>
+      <p class="js-scores"></p>
+  
+      <button onclick="
+          score.wins = 0;
+          score.losses = 0;
+          score.ties = 0;
+          localStorage.removeItem('score');
+          updateScore();
+       " class="res">Reset Score
+      </button>
+
+      <button class="Auto">Auto play</button>
+
+      <p class="credits">By Brigader</p>
+
+    </div>
+
+   
+
+    <script src="rock-p-s.js"></script>
+  </body>
+</html>
