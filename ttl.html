@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Number Line</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Intro Page Styling */
+        .intro {
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(to right, #4facfe, #00f2fe); /* Gradient background */
+            background-size: cover;
+            text-align: center;
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .intro .container {
+            background-color: rgba(0, 0, 0, 0.6); /* Transparent background overlay */
+            padding: 50px;
+            border-radius: 10px;
+            width: 70%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .intro h1 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .intro p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+
+        .intro button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .intro button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Interactive Page Styling */
+        .interactive {
+            display: none;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .number-line {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .number {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid #333;
+            margin: 2px;
+            background-color: #fff;
+            color: #333;
+        }
+
+        .number.active {
+            background-color: #ffcc00;
+        }
+
+        .trace {
+            background-color: #99ff99; /* Light green trace */
+        }
+
+        .controls {
+            margin: 20px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:disabled {
+            background-color: grey;
+        }
+
+        #result {
+            margin: 20px;
+            font-size: 1.5em;
+        }
+
+        #equation {
+            font-size: 1.5em;
+            margin: 20px;
+        }
+
+        #instructions {
+            font-size: 1.2em;
+            margin: 20px;
+            color: #333;
+        }
+        .group-name{
+          color: white;
+          font-style: Arial, sans-serif;
+          font-weight: 800;
+          margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Intro Page -->
+    <div class="intro" id="introPage">
+        <div class="container">
+            <h1>Welcome to the Interactive Number Line!</h1>
+            <p>Discover how to use the number line for addition and subtraction. Click the button below to begin your interactive learning experience.</p>
+            <button onclick="startLearning()">Start Learning</button>
+            <p class="group-name">By Group 2</p>
+        </div>
+    </div>
+
+    <!-- Interactive Page -->
+    <div class="interactive" id="interactivePage">
+        <h1>Interactive Number Line: Addition & Subtraction</h1>
+
+        <p>Use the number line to solve the equation below. Move left for subtraction and right for addition. The number line will trace your steps as you solve.</p>
+        
+        <div id="instructions">Instructions: Start from <strong>0</strong> in the middle of the number line. Move left or right to find the answer.</div>
+        
+        <div id="equation">Equation: <span id="question"></span></div>
+
+        <div class="number-line" id="numberLine">
+            <!-- Dynamically Generated Number Line -->
+        </div>
+
+        <div class="controls">
+            <button onclick="moveLeft()">Move Left (Subtraction)</button>
+            <button onclick="moveRight()">Move Right (Addition)</button>
+            <button onclick="submitAnswer()" id="submitButton" disabled>Submit Answer</button>
+            <button onclick="setupQuestion()">Next Equation</button>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Function to start learning (Switch from intro page to interactive page)
+        function startLearning() {
+            document.getElementById('introPage').style.display = 'none';
+            document.getElementById('interactivePage').style.display = 'block';
+            setupQuestion(); // Setup the number line and the equation
+        }
+
+        // Setup number line
+        const numberLine = document.getElementById('numberLine');
+        const totalNumbers = 21; // From -10 to 10
+        const middleIndex = Math.floor(totalNumbers / 2);
+        let currentIndex = middleIndex;
+        let traceIndexes = []; // To keep track of movements for trace
+        let movesCount = 0; // To count the number of moves made
+        let isSecondMoveCompleted = false; // Flag to track if second move is completed
+        let currentEquation; // To store the current equation for answer checking
+
+        // Function to generate random equation
+        function generateRandomEquation() {
+            const operation = Math.random() < 0.5 ? 'addition' : 'subtraction';
+            let start = Math.floor(Math.random() * 11) - 10; // Random number between -10 and 10
+            let steps = Math.floor(Math.random() * 11); // Random steps between 0 and 10
+
+            // Adjust start for addition to ensure result ≤ 10
+            if (operation === 'addition' && start + steps > 10) {
+                start = 10 - steps;
+            }
+
+            // Adjust start for subtraction to ensure result ≥ -10
+            if (operation === 'subtraction' && start - steps < -10) {
+                start = -10 + steps;
+            }
+
+            return { question: `${start} ${operation === 'addition' ? '+' : '-'} ${steps}`, start, steps, operation };
+        }
+
+        function setupQuestion() {
+            currentEquation = generateRandomEquation();
+            document.getElementById('question').innerText = currentEquation.question;
+            currentIndex = middleIndex; // Reset current index to the middle (0)
+            traceIndexes = [currentIndex]; // Start the trace at the current number
+            movesCount = 0; // Reset moves count
+            isSecondMoveCompleted = false; // Reset second move flag
+            document.getElementById('submitButton').disabled = true; // Disable submit button initially
+            renderNumberLine();
+        }
+
+        function renderNumberLine() {
+            numberLine.innerHTML = '';
+            for (let i = -10; i <= 10; i++) {
+                const div = document.createElement('div');
+                div.classList.add('number');
+                div.id = `num${i}`; // Assign an ID for each number
+                div.innerText = i;
+                if (i === (currentIndex - middleIndex)) {
+                    div.classList.add('active');
+                }
+                if (traceIndexes.includes(i + middleIndex)) {
+                    div.classList.add('trace'); // Add trace class to the path
+                }
+                numberLine.appendChild(div);
+            }
+            document.getElementById('result').innerText = `Current Number: ${currentIndex - middleIndex}`;
+        }
+
+        function moveLeft() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                traceIndexes.push(currentIndex); // Track the trace
+                movesCount++; // Increment move count
+                renderNumberLine();
+                checkSecondMove(); // Check if second move is completed
+            }
+        }
+
+        function moveRight() {
+            if (currentIndex < totalNumbers - 1) {
+                currentIndex++;
+                traceIndexes.push(currentIndex); // Track the trace
+                movesCount++; // Increment move count
+                renderNumberLine();
+                checkSecondMove(); // Check if second move is completed
+            }
+        }
+
+        // Check if the second move is completed
+        function checkSecondMove() {
+            if (movesCount === 2) {
+                isSecondMoveCompleted = true; // Mark second move as completed
+                document.getElementById('submitButton').disabled = false; // Enable submit button
+            }
+        }
+
+        // Submit answer function
+        function submitAnswer() {
+            const target = currentEquation.start + (currentEquation.operation === 'addition' ? currentEquation.steps : -currentEquation.steps);
+            if (currentIndex === middleIndex + target) {
+                document.getElementById('result').innerText = `Correct! The answer is ${target}.`;
+            } else {
+                document.getElementById('result').innerText = `Incorrect. Try again!`;
+            }
+        }
+    </script>
+
+</body>
+</html>
